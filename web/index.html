@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#3447df"><meta name="description" content="自由编辑个人主页和请假条，实时预览移动校园页面。">
+<title>校园页面编辑器</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="studio" id="studio">
+ <aside class="editor" id="editor">
+  <header class="brand"><div class="brand-mark">页</div><div><strong>校园页面编辑器</strong><span>把每一页，改成你的样子</span></div><button class="icon-btn mobile-close" data-action="close-editor" aria-label="关闭编辑器">×</button></header>
+  <div class="editor-intro"><span class="eyebrow">YOUR CAMPUS, YOUR CONTENT</span><h1>内容由你定义。</h1><p>选择页面，修改内容，实时预览效果。</p></div>
+  <nav class="page-picker" aria-label="页面切换"><button data-page="today">今日</button><button data-page="mine">我的</button><button data-page="profile">个人主页</button><button data-page="leaves">请假列表</button><button data-page="detail">请假详情</button></nav>
+  <div class="editor-tabs" role="tablist"><button role="tab" data-tab="profile">主页内容</button><button role="tab" data-tab="leave">请假条</button><button role="tab" data-tab="appearance">外观与备份</button></div>
+  <form id="fields" class="fields" autocomplete="off"></form>
+  <footer class="editor-footer"><span id="save-state"><i></i> 已保存在此浏览器</span><button data-action="preview" class="preview-btn">全屏预览 <span>↗</span></button></footer>
+ </aside>
+ <main class="preview-area"><div class="preview-top"><div><span class="live-dot"></span>实时预览 <span class="preview-size">/ MOBILE</span></div><div class="preview-actions"><button data-action="print" title="打印或保存 PDF">打印</button><button data-action="preview">仅预览 ↗</button></div></div><div class="phone-wrap"><div class="phone" id="phone"><div id="screen" class="screen"></div></div></div><div class="preview-bottom"><span>所有修改自动保存</span><span>主页 · 请假条 · 审核流程</span></div></main>
+</div>
+<button class="open-editor" id="open-editor" data-action="edit" aria-label="打开内容编辑器">✎ <span>编辑内容</span></button>
+<div id="toast" role="status" class="toast"></div>
+<dialog id="confirm-dialog"><form method="dialog"><h3 id="confirm-title">确认操作</h3><p id="confirm-text"></p><div class="dialog-actions"><button value="cancel" class="secondary">取消</button><button value="ok" class="primary">确认</button></div></form></dialog>
+<dialog id="note-dialog"><form method="dialog"><h3 id="note-title"></h3><p id="note-text"></p><button value="ok" class="primary">知道了</button></form></dialog>
+<input id="import-file" type="file" accept="application/json,.json" hidden><input id="avatar-file" type="file" accept="image/*" hidden><input id="cover-file" type="file" accept="image/*" hidden>
+<script src="privacy.js"></script>
+<script src="app.js"></script>
+</body></html>
